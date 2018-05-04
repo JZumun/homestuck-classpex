@@ -10,6 +10,7 @@ router.get('/', function(req, res, next) {
   const aspectString = req.query.aspect;
   const symbolSize = req.query.symbol;
   const stroke = req.query.stroke;
+  const hover = !(req.query.hover === "nohover");
 
   const hero = data.hero[heroString] || data.hero.default;
   const aspect = data.aspect[aspectString] || data.aspect.default;
@@ -21,7 +22,7 @@ router.get('/', function(req, res, next) {
 
 
   res.setHeader('Content-Type', 'image/svg+xml');
-  res.render('index', { hero, aspect, title, strokeWidth, symbolTransform, symbolStrokeWidth });
+  res.render('index', { hero, aspect, title, strokeWidth, symbolTransform, symbolStrokeWidth, hover });
 });
 
 module.exports = router;
