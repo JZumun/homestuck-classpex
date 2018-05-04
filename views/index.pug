@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+svg(viewBox="0 0 102 102"  xmlns="http://www.w3.org/2000/svg" version="1.1")
+  style.
+    @font-face {
+      font-family: "Carima";
+      src: url("carima.ttf");
+    }
+    * { transition: opacity 0.5s; }
+    svg { stroke: #{aspect.color.stroke}; stroke-width: #{strokeWidth}; stroke-linejoin:round; }
+    #tertiary .main { fill: #{aspect.color.tertiary.main}; }
+    #tertiary .accent { fill: #{aspect.color.tertiary.accent}; }
+    #primary .main { fill: #{aspect.color.primary.main}; }
+    #primary .accent { fill: #{aspect.color.primary.accent}; }
+    #secondary .accent { fill: #{aspect.color.secondary.accent}; }
+    #secondary .main { fill: #{aspect.color.secondary.main}; }
+    #symbol .main, #text .main { fill: #{aspect.color.symbol.main}; }
+    #symbol .accent, #text .accent { fill: #{aspect.color.symbol.accent}; }
+    #symbol { stroke-width: #{symbolStrokeWidth}; }
+    #text {
+      opacity: 0;
+      text-align:center;
+      text-anchor: middle;
+      font-family: "Carima", "Courier New";
+      font-size: 10px;
+      text-transform: capitalize;
+    }
+    #text .main { stroke-width: 0; }
+    svg:hover #text {
+      opacity: 1
+    }
+    svg:hover #secondary, svg:hover #symbol { opacity: 0; }
+    
+    
+  g#tertiary
+    path#tertiary-background.main(d=hero.pants.background)
+    path#tertiary-accent.accent
+    path#tertiary-extra.main
+    path#tertiary-accent-extra.accent
+  g#primary
+    path#primary-background.main(d=hero.shirt.background)
+    path#primary-accent.accent(d=hero.shirt.accent)
+    path#primary-extra.main(d=hero.shirt.extra)
+  g#secondary 
+    path#secondary-background.main(d=hero.hood.background)
+    path#secondary-accent.accent(d=hero.hood.accent)
+    path#secondary-extra.main(d=hero.hood.extra)
+    path#secondary-extra-accent.accent(d=hero.hood.extraAccent) 
+  g#symbol.symbol 
+    path#symbol-extra-accent.accent(d=hero.symbol.extraAccent)
+    path#symbol-extra.main(d=hero.symbol.extra)
+    path#symbol-main.main(d=aspect.path.main, transform=symbolTransform)
+    path#symbol-accent.accent(d=aspect.path.accent, transform=symbolTransform)
+  g#text 
+    text#text-shadow.accent(x="51" y="53")=title
+    text#text-main.main(x="51" y="53")=title
