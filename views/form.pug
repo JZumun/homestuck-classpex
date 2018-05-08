@@ -1,0 +1,39 @@
+- function capitalize(val) { return val.charAt(0).toUpperCase() + val.slice(1); }
+mixin input-field(label)
+	label.input-field
+		span.input-field-label=label
+		span.input-field-input
+			block
+mixin select-field(label, values, def)
+	+input-field(label)
+		select&attributes(attributes)
+			option(value="") #{def||""}
+			each val in values
+				option(value=val) #{capitalize(val)}
+mixin radios(name, options)
+	.radios
+		each value, index in options
+			label.radio-button
+				input(type="radio", name=name, value=value, checked=index==0)
+				span=capitalize(value)
+mixin radios-field(name, options)
+	span.input-field
+		span.input-field-label=capitalize(name)
+		+radios(name, options)
+
+doctype html
+html
+	head 
+		title Classpex Generator
+		link(rel="stylesheet" href="/form/style.css")
+	body 
+		h1#title Classpex Generator
+		form#classpex-form
+			+select-field("Class",['bard', 'heir', 'knight', 'mage', 'maid', 'page', 'prince', 'rogue', 'seer', 'sylph', 'thief', 'witch'])#hero-field.hero-input
+			+select-field("Aspect",['blood','breath','doom','heart','hope','life','light','mind','rage','space','time','voud'])#aspect-field.aspect-input
+			+radios-field("stroke",['none','thick','thin'])
+			+radios-field("symbol",['small','big'])
+			input(type="submit", value="Submit")
+		#classpex-container
+			img#classpex-image(src="/")
+		script(src="/form/generate.js")

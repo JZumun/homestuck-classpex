@@ -25,4 +25,8 @@ router.get('/', function(req, res, next) {
   res.render('index', { hero, aspect, title, strokeWidth, symbolTransform, symbolStrokeWidth, hover });
 });
 
+router.get("/form", (req, res, next) => {
+  res.render("form");
+})
+
 module.exports = router;
