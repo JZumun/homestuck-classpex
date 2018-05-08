@@ -15,7 +15,7 @@ svg(viewBox="0 0 102 102"  xmlns="http://www.w3.org/2000/svg" version="1.1")
     #secondary .main { fill: #{aspect.color.secondary.main}; }
     #symbol .main, #text .main { fill: #{aspect.color.symbol.main}; }
     #symbol .accent, #text .accent { fill: #{aspect.color.symbol.accent}; }
-    #symbol { stroke-width: #{symbolStrokeWidth}; }
+    #symbol .actual-symbol { stroke-width: #{symbolStrokeWidth}; }
     #text {
       opacity: 0;
       text-align:center;
@@ -48,8 +48,8 @@ svg(viewBox="0 0 102 102"  xmlns="http://www.w3.org/2000/svg" version="1.1")
   g#symbol.symbol 
     path#symbol-extra-accent.accent(d=hero.symbol.extraAccent)
     path#symbol-extra.main(d=hero.symbol.extra)
-    path#symbol-main.main(d=aspect.path.main, transform=symbolTransform)
-    path#symbol-accent.accent(d=aspect.path.accent, transform=symbolTransform)
+    path#symbol-main.main.actual-symbol(d=aspect.path.main, transform=symbolTransform)
+    path#symbol-accent.accent.actual-symbol(d=aspect.path.accent, transform=symbolTransform)
   g#text 
     text#text-shadow.accent(x="51" y="53")=title
     text#text-main.main(x="51" y="53")=title
