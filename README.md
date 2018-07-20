@@ -2,7 +2,7 @@
 
 Rewrite of the old [classpex generator](https://jzumun.tumblr.com/classpex) I made on tumblr five years ago, this time using pug and express to dynamically render the SVG on the server.
 
-
+![Screenshot](./public/screenshot.png)
 
 ## Background
 "Classpex" is short for "Class-Aspect hexagon", and is inspired by Hero Titles in Homestuck lore.
