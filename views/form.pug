@@ -1,11 +1,10 @@
 - function capitalize(val) { return val.charAt(0).toUpperCase() + val.slice(1); }
 mixin input-field(label)
-	label.input-field
-		span.input-field-label=label
-		span.input-field-input
-			block
+	label.input-field-label(for=attributes.id)=label
+	span.input-field-input(class=attributes.class)
+		block
 mixin select-field(label, values, def)
-	+input-field(label)
+	+input-field(label).select-field&attributes(attributes)
 		select&attributes(attributes)
 			option(value="") #{def||""}
 			each val in values
@@ -17,9 +16,8 @@ mixin radios(name, options)
 				input(type="radio", name=name, value=value, checked=index==0)
 				span=capitalize(value)
 mixin radios-field(name, options)
-	span.input-field
-		span.input-field-label=capitalize(name)
-		+radios(name, options)
+	span.input-field-label=capitalize(name)
+	+radios(name, options)
 
 doctype html
 html
@@ -38,5 +36,5 @@ html
 		#classpex-container
 			img#classpex-image(src="/")
 			small Save the image above or copy the html below:
-			textarea.classpex-src
+			textarea.classpex-src(rows=3)
 		script(src="/form/generate.js")
