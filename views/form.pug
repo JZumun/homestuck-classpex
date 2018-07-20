@@ -27,14 +27,21 @@ html
 		meta(name="viewport" content="width=device-width")
 	body 
 		h1#title Classpex Generator
-		form#classpex-form
-			+select-field("Class",['bard', 'heir', 'knight', 'mage', 'maid', 'page', 'prince', 'rogue', 'seer', 'sylph', 'thief', 'witch'])#hero-field.hero-input
-			+select-field("Aspect",['blood','breath','doom','heart','hope','life','light','mind','rage','space','time','voud'])#aspect-field.aspect-input
-			+radios-field("stroke",['none','thick','thin'])
-			+radios-field("symbol",['small','big'])
-			input(type="submit", value="Submit")
-		#classpex-container
-			img#classpex-image(src="/")
-			small Save the image above or copy the html below:
-			textarea.classpex-src(rows=3)
+		section#generator
+			form#classpex-form
+				+select-field("Class",['bard', 'heir', 'knight', 'mage', 'maid', 'page', 'prince', 'rogue', 'seer', 'sylph', 'thief', 'witch'])#hero-field.hero-input
+				+select-field("Aspect",['blood','breath','doom','heart','hope','life','light','mind','rage','space','time','voud'])#aspect-field.aspect-input
+				+radios-field("stroke",['none','thick','thin'])
+				+radios-field("symbol",['small','big'])
+				input(type="submit", value="Submit")
+			#classpex-container
+				img#classpex-image(src="/")
+				small Save the image above or copy the html below:
+				textarea.classpex-src(rows=3)
+		footer#footer
+			p.
+				Created by #[img.avatar(src="https://avatars3.githubusercontent.com/u/10479613")] #[a(href="https://jzumun.tumblr.com") JZumun] 
+				(#[a(href="https://github.com/JZumun/homestuck-classpex") Github]).
+			p #[a(href="http://mspaintadventures.com/") Homestuck]  &copy; Hussie
 		script(src="/form/generate.js")
+	
