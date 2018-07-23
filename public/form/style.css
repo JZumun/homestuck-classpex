@@ -160,6 +160,51 @@ body {
 	align-self: end;
 }
 
+.loading {
+	position:relative;
+}
+
+.loading:before {
+	content: "";
+	display: block;
+	background: rgba(255,255,255,0.75);
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	animation: fade-in 1s;
+}
+
+.loading:after {
+	content: "";
+	display: block;
+	height:2em;
+	width:2em;
+	border: 0.25em solid #eee;
+	border-top-color: #aaa;
+	border-radius: 50%;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-left: -1em;
+	margin-right: -1em;
+	transform: rotate(45deg);
+	animation: spinning 0.5s infinite linear, fade-in 1s;
+}
+
+@keyframes fade-in {
+	0% { opacity: 0 }
+	100% { opacity: 100% }
+}
+
+@keyframes spinning {
+	0% { transform: rotate(45deg) }
+	100% { transform: rotate(405deg) }
+}
+
 
 @media all and (max-width: 550px) {
 	#generator {
