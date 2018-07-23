@@ -10,7 +10,6 @@
 	
 	function setTextAreaContents(queryString="") {
 		var textarea = document.querySelector(".classpex-src");
-			console.log(queryString, textarea);
 		textarea.innerText = "<img src='" + window.location.origin + queryString + "' />'";
 	}
 	
