@@ -13,7 +13,7 @@
 		textarea.innerText = "<img src='" + window.location.origin + queryString + "' />'";
 	}
 	
-	document.querySelector("#classpex-form").addEventListener("submit", function(e){
+	document.querySelector("#classpex-form").addEventListener("change", function(e){
 		e.preventDefault();
 		var heroValue = document.querySelector("#hero-field").value;
 		var aspectValue = document.querySelector("#aspect-field").value;
