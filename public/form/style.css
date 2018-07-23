@@ -7,6 +7,8 @@ html {
 
 body {
 	font-family: monospace;
+	font-size: 16px;
+	font-size: calc(10px + 4vw/12);
 }
 
 h1 {
@@ -109,6 +111,11 @@ footer {
 	flex-direction: row-reverse;
 	justify-content: space-between;
 	align-items: baseline;
+	flex-wrap:wrap;
+}
+
+footer p {
+	white-space: nowrap;
 }
 
 .avatar {
@@ -207,8 +214,17 @@ body {
 
 
 @media all and (max-width: 550px) {
+	body {
+		font-size: 1em;
+	}
 	#generator {
 		grid-template-columns: 1fr;
 		grid-template-areas: "image" "form"
+	}
+}
+
+@media all and (min-width: 1800px) {
+	body {
+		font-size: 18px;
 	}
 }
