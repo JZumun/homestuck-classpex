@@ -159,12 +159,29 @@ body {
 	grid-template-columns: max-content 1fr;
 }
 
-#classpex-form [type=submit] {
-	grid-column: 2;
-}
-
 #footer {
 	align-self: end;
+}
+
+.error {
+	text-align: center;
+	overflow: auto;
+}
+.error *+* {
+	margin-top: 1em;
+}
+.error-message {
+	max-width: 100%;
+	overflow: auto;
+	background: #eee;
+	padding: 2em;
+	color: #b51d1d;
+}
+.error-message pre {
+	padding: 0;
+	margin: 0;	
+	display: inline-block;
+	text-align:initial;
 }
 
 .loading {
