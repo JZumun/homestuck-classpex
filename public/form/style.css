@@ -141,7 +141,7 @@ footer p {
 .loading:before {
 	content: "";
 	display: block;
-	background: rgba(255,255,255,0.75);
+	background: rgba(239,239,239,0.75);
 	position: absolute;
 	top: 0;
 	left: 0;
