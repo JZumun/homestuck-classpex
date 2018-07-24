@@ -36,6 +36,6 @@
 	image.addEventListener("error", removeLoading);
 	
 
-	setTextAreaContents();
+	setTextAreaContents("?stroke=thin");
 	
 })();
