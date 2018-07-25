@@ -29,4 +29,8 @@ router.get("/form", (req, res, next) => {
   res.render("form");
 })
 
+router.get("/embed", (req, res, next) => {
+  res.render("simple");
+})
+
 module.exports = router;

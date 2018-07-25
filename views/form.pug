@@ -1,53 +1,28 @@
-- function capitalize(val) { return val.charAt(0).toUpperCase() + val.slice(1); }
-mixin input-field(label)
-	label.input-field-label(for=attributes.id)=label
-	span.input-field-input(class=attributes.class)
-		block
-mixin select-field(label, values, def)
-	+input-field(label).select-field&attributes(attributes)
-		select&attributes(attributes)
-			option(value="") #{def||""}
-			each val in values
-				option(value=val) #{capitalize(val)}
-mixin radios(name, options)
-	.radios
-		each value, index in options
-			label.radio-button
-				input(type="radio", name=name, value=value, checked=index==0)
-				span=capitalize(value)
-mixin radios-field(name, options)
-	span.input-field-label=capitalize(name)
-	+radios(name, options)
+extends layout.pug
 
-doctype html
-html
-	head 
-		title Classpex Generator
-		link(rel="stylesheet" href="/form/style.css")
-		meta(name="viewport" content="width=device-width")
-
-		meta(property="og:image" content="/screenshot.png")
-		meta(property="og:description" content="Class/aspect hexagon designs inspired by Homestuck Sburb lore.")
-		meta(property="og:title" content="Homestuck Classpex Generator")
-		meta(property="og:url" content="/form")
-		meta(name="twitter:card" content="summary_large_image")
-	body 
-		.container
-			h1#title Classpex Generator
-			section#generator
-				form#classpex-form
-					+select-field("Class",['bard', 'heir', 'knight', 'mage', 'maid', 'page', 'prince', 'rogue', 'seer', 'sylph', 'thief', 'witch'])#hero-field.hero-input
-					+select-field("Aspect",['blood','breath','doom','heart','hope','life','light','mind','rage','space','time','void'])#aspect-field.aspect-input
-					+radios-field("stroke",['thin','thick','none'])
-					+radios-field("symbol",['small','big'])
-				#classpex-container
-					img#classpex-image(src="/?stroke=thin")
-					small Save the image above or copy the html below:
-					textarea.classpex-src(rows=3)
-			footer#footer
-				p.
-					Created by #[img.avatar(src="https://avatars3.githubusercontent.com/u/10479613")] #[a(href="https://jzumun.tumblr.com") JZumun] 
-					(#[a(href="https://github.com/JZumun/homestuck-classpex") Github]).
-				p #[a(href="http://mspaintadventures.com/") Homestuck]  &copy; Hussie
-			script(src="/form/generate.js")
+block metadata
+	meta(property="og:image" content="/screenshot.png")
+	meta(property="og:description" content="Class/aspect hexagon designs inspired by Homestuck Sburb lore.")
+	meta(property="og:title" content="Homestuck Classpex Generator")
+	meta(property="og:url" content="/form")
+	meta(name="twitter:card" content="summary_large_image")
+	
+block contents
+	h1#title Classpex Generator
+	section#generator
+		form#classpex-form
+			+select-field("Class",['bard', 'heir', 'knight', 'mage', 'maid', 'page', 'prince', 'rogue', 'seer', 'sylph', 'thief', 'witch'])#hero-field.hero-input
+			+select-field("Aspect",['blood','breath','doom','heart','hope','life','light','mind','rage','space','time','void'])#aspect-field.aspect-input
+			+radios-field("stroke",['thin','thick','none'])
+			+radios-field("symbol",['small','big'])
+		#classpex-container
+			img#classpex-image(src="/?stroke=thin")
+			small Save the image above or copy the html below:
+			textarea.classpex-src(rows=3)
+	footer#footer
+		p.
+			Created by #[img.avatar(src="https://avatars3.githubusercontent.com/u/10479613")] #[a(href="https://jzumun.tumblr.com") JZumun] 
+			(#[a(href="https://github.com/JZumun/homestuck-classpex") Github]).
+		p #[a(href="http://mspaintadventures.com/") Homestuck]  &copy; Hussie
+	script(src="/form/generate.js")
 	
