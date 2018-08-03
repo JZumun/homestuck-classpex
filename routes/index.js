@@ -6,6 +6,7 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
+  
   const heroString = req.query["class"];
   const aspectString = req.query.aspect;
   const symbolSize = req.query.symbol;
@@ -20,6 +21,7 @@ router.get('/', function(req, res, next) {
   const strokeWidth = stroke === 'thick' ? 1 : stroke === 'thin' ? 0.5 : 0;
   const symbolStrokeWidth = strokeWidth * ( symbolSize === "big" ? 0.7097 : 1 );
 
+  console.log(`${req.headers.referer} requesting ${heroString || "hero"}${aspectString ? ` of ${aspectString}` : ``} - ${symbolSize || "small"} symbol, ${stroke || "no"} stroke`);
 
   res.setHeader('Content-Type', 'image/svg+xml');
   res.render('index', { hero, aspect, title, strokeWidth, symbolTransform, symbolStrokeWidth, hover });
