@@ -5,6 +5,7 @@ publish = "dist"
 [functions]
 node_bundler = "esbuild"
 directory = "src/routes"
+included_files = ["src/views/*.pug"]
 
 [[redirects]]
 from = "/"
