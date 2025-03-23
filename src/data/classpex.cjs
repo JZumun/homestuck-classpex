@@ -136,7 +136,7 @@ const aspectPaths = {
 
 }
 
-const jsonObject = {
+module.exports = {
 	aspect: Object.keys(aspectColors).reduce((obj,key)=>{
 		obj[key] = {
 			name: key == "default" ? null : key,
@@ -175,5 +175,3 @@ const jsonObject = {
 		return obj;
 	},{})
 }
-
-require("fs").writeFile("./classpex.json",JSON.stringify(jsonObject), (err, res) => {});

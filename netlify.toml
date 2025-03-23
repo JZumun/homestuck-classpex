@@ -1,0 +1,11 @@
+[build]
+command = "deno upgrade && deno task build"
+publish = "dist"
+
+[functions]
+node_bundler = "esbuild"
+directory = "src/routes"
+
+[[redirects]]
+from = "/"
+to = "/.netlify/functions/index"
