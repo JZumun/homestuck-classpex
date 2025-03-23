@@ -11,7 +11,7 @@ function generateHtmlFiles() {
   const SRC_VIEWS_DIRECTORY = "src/views";
   const files = {
     "form.html": "form.pug",
-    "simple.html": "simple.pug",
+    "embed.html": "simple.pug",
     "404.html": "error.pug",
   };
 
